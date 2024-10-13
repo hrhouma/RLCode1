@@ -288,3 +288,42 @@ python pacman.py -p PacmanQAgent -n 50 -x 40 -l smallGrid -a alpha=0.5,epsilon=0
 L'option -k 1 affiche les Q-valeurs pour chaque action possible.
 
 Ces commandes offrent une variété d'expériences qui permettront à vos étudiants d'explorer différents aspects du Q-learning et de l'apprentissage par renforcement dans le contexte de Pacman. Encouragez-les à modifier les paramètres, à comparer les résultats et à réfléchir aux raisons des différences observées.
+
+
+-----------------
+
+
+Oui, il existe d'autres algorithmes et explications sur le Q-learning et l'impact de alpha dans le dépôt de l'Université de Berkeley. Voici un résumé des informations pertinentes :
+
+1. Le projet Pacman de Berkeley inclut une implémentation de Q-learning[3]. L'agent Q-learning est défini dans la classe `QLearningAgent` du fichier `qlearningAgents.py`.
+
+2. L'impact de alpha (taux d'apprentissage) est crucial dans le Q-learning. Alpha contrôle la vitesse à laquelle l'agent met à jour ses estimations de Q-valeurs[3].
+
+3. La formule de mise à jour du Q-learning est :
+   Q(s,a) += alpha * (R(s) + gamma * max[Q(s',a')] - Q(s,a))
+   Où alpha est le taux d'apprentissage[4].
+
+4. Le projet permet d'expérimenter avec différentes valeurs d'alpha pour observer son impact sur l'apprentissage[3].
+
+5. En plus du Q-learning de base, le projet inclut également une implémentation de l'Approximate Q-learning, qui utilise des fonctions d'approximation pour gérer des espaces d'états plus grands[3].
+
+6. Le projet propose également d'implémenter une stratégie epsilon-greedy pour l'exploration, ce qui permet d'observer l'interaction entre le taux d'apprentissage (alpha) et le taux d'exploration (epsilon)[3].
+
+7. Pour démontrer l'impact de alpha, vous pouvez exécuter l'agent Q-learning avec différentes valeurs d'alpha et comparer les performances[3][4].
+
+Pour explorer ces concepts, vous pouvez utiliser des commandes comme :
+
+```
+python gridworld.py -a q -k 100 -l smallGrid -n 0.2
+python gridworld.py -a q -k 100 -l smallGrid -n 0.8
+```
+
+Ces commandes exécutent l'agent Q-learning sur une petite grille avec différentes valeurs d'alpha (0.2 et 0.8 respectivement) pour 100 épisodes.
+
+En variant ces paramètres et en observant les résultats, vos étudiants pourront mieux comprendre l'impact de alpha sur l'apprentissage de l'agent Q-learning.
+
+Citations:
+[1] https://bair.berkeley.edu/blog/2020/12/07/offline/
+[2] https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/homeworks/hw3.pdf
+[3] https://inst.eecs.berkeley.edu/~cs188/fa24/projects/proj3/
+[4] https://www.cs.swarthmore.edu/~bryce/cs63/s17/labs/05.html
