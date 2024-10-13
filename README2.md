@@ -181,3 +181,48 @@ Citations:
 [3] https://www.cs.swarthmore.edu/~bryce/cs63/s18/labs/06.html
 [4] https://courses.cs.washington.edu/courses/cse573/10au/pacman/reinforcement/docs/learningAgents.html
 [5] https://www.cs.swarthmore.edu/~meeden/cs63/s19/labs/06.html
+
+
+---------------------------------
+
+
+Pour répondre à votre demande de grilles intermédiaires et grandes pour Pac-Man, voici quelques suggestions basées sur les informations disponibles :
+
+## Grilles intermédiaires
+
+Pour créer des grilles intermédiaires, vous pouvez modifier la commande de base en utilisant des labyrinthes plus grands que "smallGrid" mais plus petits que les labyrinthes complets. Voici quelques exemples :
+
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumGrid -a alpha=0.5,epsilon=0.1
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumClassic -a alpha=0.5,epsilon=0.1
+```
+
+Ces commandes utilisent des grilles de taille moyenne, ce qui offre un bon compromis entre complexité et temps d'exécution.
+
+## Grandes grilles
+
+Pour des grilles plus grandes, similaires à celles du jeu original, vous pouvez utiliser :
+
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l originalClassic -a alpha=0.5,epsilon=0.1
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l bigClassic -a alpha=0.5,epsilon=0.1
+```
+
+Ces grilles sont basées sur le labyrinthe original de Pac-Man, qui mesure 28x31 tuiles[1]. Elles offrent une expérience plus proche du jeu original, mais nécessiteront plus de temps pour l'apprentissage et l'exécution.
+
+## Points importants à noter
+
+1. Les grilles plus grandes augmentent la complexité de l'apprentissage. Vous devrez probablement augmenter le nombre d'épisodes d'entraînement (-x) pour obtenir de bons résultats.
+
+2. La taille de la grille affecte directement le temps nécessaire à l'agent pour explorer et apprendre. Les grandes grilles peuvent nécessiter des sessions d'entraînement beaucoup plus longues.
+
+3. Pour les démonstrations en classe, les grilles intermédiaires offrent généralement un bon équilibre entre complexité et temps d'exécution.
+
+4. N'oubliez pas que vous pouvez toujours ajuster les paramètres alpha et epsilon pour observer leur impact sur différentes tailles de grille.
+
+En utilisant ces différentes tailles de grille, vous pourrez démontrer à vos étudiants comment la complexité de l'environnement affecte l'apprentissage de l'agent Q-learning, tout en illustrant l'importance du choix des paramètres d'apprentissage en fonction de la taille du problème.
+
+Citations:
+[1] https://shaunlebron.github.io/pacman-mazegen/
+[2] https://www.classicgaming.cc/classics/pac-man/play-guide
+[3] https://gameinternals.com/understanding-pac-man-ghost-behavior
