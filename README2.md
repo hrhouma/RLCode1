@@ -129,3 +129,55 @@ Citations:
 [2] https://www.cs.swarthmore.edu/~bryce/cs63/s18/labs/06.html
 [3] https://courses.cs.washington.edu/courses/cse573/10au/pacman/reinforcement/docs/learningAgents.html
 [4] https://cs229.stanford.edu/proj2017/final-posters/5144893.pdf
+
+
+
+-----------------------
+
+
+Je comprends votre besoin de démontrer l'impact de différentes valeurs d'alpha (taux d'apprentissage) et d'epsilon (taux d'exploration) de manière concise. Voici une table ASCII présentant différentes configurations avec des commandes plus courtes pour une démonstration rapide :
+
+```
++-------------+------------------+------------------+------------------------------------------+
+|  Stratégie  |      Alpha       |     Epsilon      |               Commande                   |
++-------------+------------------+------------------+------------------------------------------+
+| Petit alpha | 0.1 (Apprentis-  | 0.1 (Équilibré)  | python pacman.py -p PacmanQAgent -n 50   |
+|             | sage lent)       |                  | -x 40 -l smallGrid -a alpha=0.1,epsilon=0.1 |
++-------------+------------------+------------------+------------------------------------------+
+| Équilibré   | 0.5 (Moyen)      | 0.1 (Équilibré)  | python pacman.py -p PacmanQAgent -n 50   |
+|             |                  |                  | -x 40 -l smallGrid -a alpha=0.5,epsilon=0.1 |
++-------------+------------------+------------------+------------------------------------------+
+| Grand alpha | 0.9 (Apprentis-  | 0.1 (Équilibré)  | python pacman.py -p PacmanQAgent -n 50   |
+|             | sage rapide)     |                  | -x 40 -l smallGrid -a alpha=0.9,epsilon=0.1 |
++-------------+------------------+------------------+------------------------------------------+
+| Plus        | 0.5 (Moyen)      | 0.3 (Plus        | python pacman.py -p PacmanQAgent -n 50   |
+| d'explora-  |                  | d'exploration)   | -x 40 -l smallGrid -a alpha=0.5,epsilon=0.3 |
+| tion        |                  |                  |                                          |
++-------------+------------------+------------------+------------------------------------------+
+| Plus        | 0.5 (Moyen)      | 0.01 (Plus       | python pacman.py -p PacmanQAgent -n 50   |
+| d'exploita- |                  | d'exploitation)  | -x 40 -l smallGrid -a alpha=0.5,epsilon=0.01|
+| tion        |                  |                  |                                          |
++-------------+------------------+------------------+------------------------------------------+
+```
+
+Explications :
+
+1. Chaque commande exécute 50 épisodes au total (-n 50), dont 40 pour l'entraînement (-x 40) et 10 pour la démonstration.
+2. Nous utilisons le labyrinthe smallGrid pour des résultats rapides.
+3. Alpha varie de 0.1 (apprentissage lent) à 0.9 (apprentissage rapide).
+4. Epsilon varie de 0.01 (plus d'exploitation) à 0.3 (plus d'exploration).
+
+Pour utiliser ces commandes :
+
+1. Copiez et collez la commande désirée dans votre terminal.
+2. Observez les 10 derniers épisodes pour voir le comportement de Pacman après l'entraînement.
+3. Comparez les résultats entre les différentes configurations.
+
+Ces commandes plus courtes devraient vous permettre de démontrer rapidement l'impact des différents paramètres sans que les épisodes de démonstration ne durent trop longtemps.
+
+Citations:
+[1] https://courses.cs.washington.edu/courses/cse473/11au/pacman/reinforcement/reinforcement.html
+[2] https://www.cs.swarthmore.edu/~bryce/cs63/s17/labs/05.html
+[3] https://www.cs.swarthmore.edu/~bryce/cs63/s18/labs/06.html
+[4] https://courses.cs.washington.edu/courses/cse573/10au/pacman/reinforcement/docs/learningAgents.html
+[5] https://www.cs.swarthmore.edu/~meeden/cs63/s19/labs/06.html
