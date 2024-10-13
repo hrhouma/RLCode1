@@ -327,3 +327,58 @@ Citations:
 [2] https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/homeworks/hw3.pdf
 [3] https://inst.eecs.berkeley.edu/~cs188/fa24/projects/proj3/
 [4] https://www.cs.swarthmore.edu/~bryce/cs63/s17/labs/05.html
+
+----------
+
+D'accord, je comprends que vous voulez démontrer l'impact de différentes valeurs d'alpha (taux d'apprentissage) ainsi que l'équilibre entre exploration et exploitation. Voici quelques commandes que vous pouvez utiliser pour illustrer ces concepts à vos étudiants :
+
+1. Alpha petit (apprentissage lent) :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.1,epsilon=0.2
+```
+
+2. Alpha grand (apprentissage rapide) :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.9,epsilon=0.2
+```
+
+3. Alpha équilibré :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.5,epsilon=0.2
+```
+
+4. Plus d'exploration (epsilon élevé) :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.5,epsilon=0.5
+```
+
+5. Plus d'exploitation (epsilon bas) :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.5,epsilon=0.05
+```
+
+6. Équilibre exploration/exploitation :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.5,epsilon=0.2
+```
+
+Ces commandes utilisent :
+- 100 épisodes au total (-n 100)
+- 90 épisodes d'entraînement (-x 90)
+- Le labyrinthe smallGrid pour des résultats rapides
+
+Vous pouvez expliquer à vos étudiants que :
+
+- Un alpha petit (0.1) signifie que l'agent apprend lentement mais de manière stable.
+- Un alpha grand (0.9) signifie que l'agent apprend rapidement mais peut être instable.
+- Un epsilon élevé (0.5) favorise l'exploration (actions aléatoires).
+- Un epsilon bas (0.05) favorise l'exploitation (utilisation des connaissances acquises).
+
+Encouragez vos étudiants à observer les différences de performance et de comportement de l'agent avec ces différentes configurations. Ils pourront ainsi mieux comprendre l'impact de ces paramètres sur l'apprentissage par renforcement.
+
+Citations:
+[1] https://www.datacamp.com/tutorial/introduction-q-learning-beginner-tutorial
+[2] https://ai.berkeley.edu/reinforcement.html
+[3] https://www.youtube.com/watch?v=VBbgt81ryfg
+[4] https://ai.berkeley.edu/project_overview.html
+[5] https://www.academia.edu/101675557/Impact_of_Learning_Rate_alpha_in_Q_Learning
