@@ -226,3 +226,65 @@ Citations:
 [1] https://shaunlebron.github.io/pacman-mazegen/
 [2] https://www.classicgaming.cc/classics/pac-man/play-guide
 [3] https://gameinternals.com/understanding-pac-man-ghost-behavior
+
+
+----------------------
+
+Certainement ! Voici une série de commandes supplémentaires que vous pouvez proposer à vos étudiants pour explorer et apprendre davantage sur le Q-learning dans Pacman :
+
+1. Comparaison des stratégies d'apprentissage :
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumClassic -a alpha=0.5,epsilon=0.1
+python pacman.py -p ApproximateQAgent -n 50 -x 40 -l mediumClassic -a alpha=0.5,epsilon=0.1
+```
+Ces commandes permettent de comparer l'agent Q-learning standard avec l'agent Q-learning approximatif.
+
+2. Exploration de l'impact du facteur de réduction (gamma) :
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumGrid -a alpha=0.5,epsilon=0.1,gamma=0.5
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumGrid -a alpha=0.5,epsilon=0.1,gamma=0.9
+```
+
+3. Utilisation de différents extracteurs de caractéristiques :
+```
+python pacman.py -p ApproximateQAgent -a extractor=SimpleExtractor -x 50 -n 60 -l mediumGrid
+python pacman.py -p ApproximateQAgent -a extractor=CoordinateExtractor -x 50 -n 60 -l mediumGrid
+```
+
+4. Comparaison avec d'autres types d'agents :
+```
+python pacman.py -p ExpectimaxAgent -l minimaxClassic -a depth=3
+python pacman.py -p AlphaBetaAgent -l minimaxClassic -a depth=3
+```
+
+5. Exploration de différents types de fantômes :
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumClassic -a alpha=0.5,epsilon=0.1 -g DirectionalGhost
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l mediumClassic -a alpha=0.5,epsilon=0.1 -g RandomGhost
+```
+
+6. Visualisation de l'apprentissage au fil du temps :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l mediumGrid -a alpha=0.5,epsilon=0.1 --frameTime 0.1
+```
+Cette commande ralentit l'affichage pour mieux observer l'évolution du comportement de l'agent.
+
+7. Comparaison des performances avec différents nombres d'épisodes d'entraînement :
+```
+python pacman.py -p PacmanQAgent -n 60 -x 50 -l mediumClassic -a alpha=0.5,epsilon=0.1
+python pacman.py -p PacmanQAgent -n 110 -x 100 -l mediumClassic -a alpha=0.5,epsilon=0.1
+```
+
+8. Exploration de labyrinthes spécifiques :
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l capsuleClassic -a alpha=0.5,epsilon=0.1
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l contestClassic -a alpha=0.5,epsilon=0.1
+```
+
+9. Utilisation de l'option de débogage pour voir les Q-valeurs :
+```
+python pacman.py -p PacmanQAgent -n 50 -x 40 -l smallGrid -a alpha=0.5,epsilon=0.1 --frameTime 0.1 -q -k 1
+```
+L'option -k 1 affiche les Q-valeurs pour chaque action possible.
+
+Ces commandes offrent une variété d'expériences qui permettront à vos étudiants d'explorer différents aspects du Q-learning et de l'apprentissage par renforcement dans le contexte de Pacman. Encouragez-les à modifier les paramètres, à comparer les résultats et à réfléchir aux raisons des différences observées.
