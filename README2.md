@@ -82,3 +82,50 @@ Citations:
 [1] https://stanford-cs221.github.io/spring2024/assignments/pacman/index.html
 [2] https://courses.cs.washington.edu/courses/cse573/10au/pacman/reinforcement/docs/learningAgents.html
 [3] https://ai.berkeley.edu/reinforcement.html
+
+
+--------------------------------
+
+Je comprends votre frustration. Il semble que vous ayez rencontré des difficultés avec les différentes commandes. Voici quelques suggestions pour résoudre ces problèmes :
+
+1. Pour la commande qui prend beaucoup de temps :
+```
+python pacman.py -p PacmanQAgent -a alpha=0.1 -x 2000 -n 2100 -l smallGrid
+```
+Cette commande est conçue pour un entraînement long (2000 épisodes) suivi de 100 épisodes de test. C'est normal qu'elle prenne du temps. Si vous voulez une démonstration plus rapide, vous pouvez réduire le nombre d'épisodes d'entraînement et de test[1].
+
+2. Pour la commande où Pacman perd tout le temps :
+```
+python pacman.py -p PacmanQAgent -n 10 -l smallGrid -a alpha=0.1,gamma=0.8,epsilon=0.1
+```
+Ce comportement est normal pour seulement 10 épisodes. Avec si peu d'épisodes, l'agent n'a pas assez de temps pour apprendre une bonne politique[2]. De plus, avec epsilon=0.1, l'agent fait encore beaucoup d'actions aléatoires.
+
+Voici quelques suggestions pour améliorer votre démonstration :
+
+1. Utilisez un nombre intermédiaire d'épisodes, par exemple 100 :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.2,gamma=0.8,epsilon=0.1
+```
+Cette commande fera 90 épisodes d'entraînement et 10 épisodes de test.
+
+2. Réduisez epsilon pour les épisodes de test :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.2,gamma=0.8,epsilon=0.1 -q
+```
+L'option -q désactive l'affichage graphique pour accélérer l'entraînement[3].
+
+3. Pour voir les 10 derniers épisodes (test) :
+```
+python pacman.py -p PacmanQAgent -n 100 -x 90 -l smallGrid -a alpha=0.2,gamma=0.8,epsilon=0.0
+```
+Ici, epsilon est mis à 0 pour les épisodes de test, ce qui devrait montrer un meilleur comportement de Pacman.
+
+4. Si vous voulez voir l'évolution de l'apprentissage, vous pouvez exécuter plusieurs fois la commande en augmentant progressivement le nombre d'épisodes d'entraînement.
+
+N'oubliez pas que l'apprentissage par renforcement nécessite souvent de nombreux essais avant que l'agent ne commence à bien performer. C'est une excellente opportunité pour discuter avec vos étudiants de l'importance du nombre d'épisodes, du taux d'apprentissage (alpha), du facteur de réduction (gamma) et du taux d'exploration (epsilon) dans le processus d'apprentissage[4].
+
+Citations:
+[1] https://www.cs.swarthmore.edu/~meeden/cs63/s19/labs/06.html
+[2] https://www.cs.swarthmore.edu/~bryce/cs63/s18/labs/06.html
+[3] https://courses.cs.washington.edu/courses/cse573/10au/pacman/reinforcement/docs/learningAgents.html
+[4] https://cs229.stanford.edu/proj2017/final-posters/5144893.pdf
